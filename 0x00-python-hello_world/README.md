@@ -1,4 +1,4 @@
-0x00. Python - Hello, World
+#0x00. Python - Hello, World
 
 Here we're introduced to Python for the first time in this program. We'll be writing python code and shell scripts in this project.
 
