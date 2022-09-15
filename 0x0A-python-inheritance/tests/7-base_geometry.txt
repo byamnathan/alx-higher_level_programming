@@ -1,0 +1,96 @@
+Doctest for BaseGeometry
+========================
+
+Import the class
+::
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+
+Try using the area method
+::
+	>>> bg.area() # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
+
+value = integer 12
+::
+	>>> bg.integer_validator("my_int", 12)
+
+value = integer 89
+::
+	>>> bg.integer_validator("width", 89)
+
+value = string "John"
+::
+	>>> bg.integer_validator("name", "John")
+	Traceback (most recent call last):
+	...
+	TypeError: name must be an integer
+
+value  = 0
+::
+	>>> bg.integer_validator("age", 0)
+	Traceback (most recent call last):
+	...
+	ValueError: age must be greater than 0
+
+value is less than 0
+::
+	>>> bg.integer_validator("distance", -4)
+	Traceback (most recent call last):
+	...
+	ValueError: distance must be greater than 0
+
+value is None
+::
+	>>> bg.integer_validator("age", None)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+value is dictionary
+::
+	>>> bg.integer_validator("age", {2, 4})
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+value is boolean
+::
+	>>> bg.integer_validator("age", False)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+value is list
+::
+	>>> bg.integer_validator("name", [2, 3])
+	Traceback (most recent call last):
+	...
+	TypeError: name must be an integer
+
+value is tuple
+::
+	>>> bg.integer_validator("name", (1,))
+	Traceback (most recent call last):
+	...
+	TypeError: name must be an integer
+
+No value provide
+::
+	>>> bg.integer_validator("name")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+No parameter provided
+::
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+========
+END TEST
+========
